@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ProductIDValidator {
-	private static final String PRODUCT_ID_PATTERN = "[0-9]{7,}";
+	private static final String PRODUCT_ID_PATTERN = "[1-9][0-9]{6,}";
 	private static final String QUANTITY_PATTERN = "[0-9]+";
 	private static final String PRICE_PATTERN = "[0-9]+[.]?[0-9]+";
 

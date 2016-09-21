@@ -68,8 +68,18 @@ public class ProductQueries extends AbstractDAO {
 			selectProductByID.setInt(1, id);
 			resultSet = selectProductByID.executeQuery();
 			while (resultSet.next()) {
+				FotoQueries fotoQ = new FotoQueries();
+				List<Foto> fotos = fotoQ.getFotosByProductId(resultSet.getInt(1));
+				
 				product = new Product(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(5),
 						resultSet.getString(6), resultSet.getInt(3));
+				
+				for (Foto foto : fotos) {
+					if (foto != null) {
+						product.addFoto(foto);
+					}
+				}
+
 			}
 
 		} catch (SQLException e) {

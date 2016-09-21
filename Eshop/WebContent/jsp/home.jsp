@@ -64,6 +64,31 @@ p {
 	font-family: verdana;
 	font-size: 20px;
 }
+
+a.one:link{
+    text-decoration: none;
+    font-size:110%;
+}
+
+a.one:visited{
+    text-decoration: none;
+    color: black;
+}
+
+/* mouse over link */
+a.one:hover{
+    text-decoration: underline;
+    color: hotpink;
+}
+
+a.one:active {
+    text-decoration: underline;
+}
+
+/* selected link */
+a.one:active{
+    color: blue;
+}
 </style>
 
 <TITLE>E-Shop Home Page</TITLE>
@@ -119,11 +144,11 @@ p {
 						Product element = (Product) iter.next();
 
 						out.println("<BR>");
+						out.println("<a class=\"one\" href=\"/Eshop/ProductById?param1="+element.getId()+"\" >");
 						out.println(element.getId() + "<BR>");
 						out.println(element.getProductName() + "<BR>");
-						out.println(element.getQuantity() + "<BR>");
 						out.println(element.getPrice() + "<BR>");
-						out.println(element.getDescription() + "<BR>");
+						out.println("</a>");
 
 						for (Foto foto : element.getFotos()) {
 							out.println("<a target=\"_blank\" href=\"" + foto.getPicturePath() + "\">");
@@ -131,6 +156,8 @@ p {
 									+ " width=\"200\" height=\"200\" />");
 							out.println("</a>");
 						}
+						out.println("<BR>");
+						out.println("<BR>");
 					}
 					out.println("<BR>");
 				}

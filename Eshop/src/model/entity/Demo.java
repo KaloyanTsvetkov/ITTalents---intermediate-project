@@ -68,6 +68,7 @@ public class Demo {
 				System.out.println(productFoto.getPicturePath());
 			}
 		}
+
 	}
 
 }
